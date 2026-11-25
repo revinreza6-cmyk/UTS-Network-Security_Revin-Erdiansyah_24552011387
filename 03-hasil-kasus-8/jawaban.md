@@ -1,4 +1,4 @@
-<img width="388" height="131" alt="ss1 tugas 2" src="https://github.com/user-attachments/assets/bf79da30-589f-4fb1-a18d-0eb369ed8d0e" /># LAPORAN UTS NETWORK SECURITY
+/># LAPORAN UTS NETWORK SECURITY
 ## Kasus 8 (K8) — Dokumentasi Tugas 1–7
 
 **Nama:** Revin Erdiansyah
@@ -119,7 +119,7 @@ docker run --rm -v "$PWD":/work uts-openssl sh -c 'openssl req -x509 -newkey rsa
 
 **Screenshot 1:** Enkripsi, dekripsi, dan dua hash SHA-256.
 
-<img width="388" height="131" alt="ss1 tugas 2" src="https://github.com/user-attachments/assets/5e86f06b-ba16-43bd-861a-455e497bed06" />
+<img width="588" height="151" alt="ss1 tugas 2" src="https://github.com/user-attachments/assets/5e86f06b-ba16-43bd-861a-455e497bed06" />
 
 
 **Screenshot 2:** Pembuatan sertifikat dan pemeriksaan Subject, Issuer, serta masa berlaku.
