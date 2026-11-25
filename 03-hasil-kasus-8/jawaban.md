@@ -124,7 +124,7 @@ docker run --rm -v "$PWD":/work uts-openssl sh -c 'openssl req -x509 -newkey rsa
 
 **Screenshot 2:** Pembuatan sertifikat dan pemeriksaan Subject, Issuer, serta masa berlaku.
 
-<img width="392" height="98" alt="ss 2 tugas 2" src="https://github.com/user-attachments/assets/5b2da716-2f9b-4e37-bec3-cec330d64e2b" />
+<img width="588" height="151" alt="ss 2 tugas 2" src="https://github.com/user-attachments/assets/5b2da716-2f9b-4e37-bec3-cec330d64e2b" />
 
 
 ### 4. Hasil Pengujian
