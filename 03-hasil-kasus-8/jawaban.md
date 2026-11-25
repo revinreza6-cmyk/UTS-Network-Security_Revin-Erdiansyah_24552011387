@@ -127,15 +127,39 @@ docker run --rm -v "$PWD":/work uts-openssl sh -c 'openssl req -x509 -newkey rsa
 <img width="588" height="151" alt="ss 2 tugas 2" src="https://github.com/user-attachments/assets/5b2da716-2f9b-4e37-bec3-cec330d64e2b" />
 
 
-### 4. Hasil Pengujian
+### ### 4. Hasil Pengujian
 
-1. Hash SHA-256 file asli (`laporan-k8.txt`) dan hasil dekripsi (`hasil-k8.txt`) sama persis: `e26ef77c5ac16543d232d3bd3c0663aaa8550290b217a8a6925671d37a4264f7`. Artinya isi file kembali utuh setelah enkripsi dan dekripsi.
-2. Sertifikat berhasil dibuat. `subject=CN=k8.uts.local` dan `issuer=CN=k8.uts.local`; keduanya sama karena sertifikat ditandatangani sendiri.
-3. Masa berlaku: `notBefore=Nov 19 08:19:10 2026 GMT` sampai `notAfter=Dec 19 08:19:10 2026 GMT`, yaitu 30 hari.
+1. **Pengujian Hash SHA-256**
+
+   Berdasarkan hasil pengujian, hash SHA-256 file asli (`laporan-k8.txt`) dan file hasil dekripsi (`hasil-k8.txt`) menunjukkan nilai yang sama, yaitu:
+
+   `e26ef77c5ac16543d232d3bd3c0663aaa8550290b217a8a6925671d37a4264f7`
+
+   Kesamaan nilai hash membuktikan bahwa isi file berhasil dikembalikan secara utuh setelah melalui proses enkripsi dan dekripsi AES-256-CBC.
+
+2. **Pengujian Sertifikat Digital**
+
+   Sertifikat digital berhasil dibuat menggunakan metode self-signed dengan Common Name (CN) sesuai domain Kasus 8, yaitu `k8.exfil.lab`.
+
+   Hasil pemeriksaan sertifikat menunjukkan:
+   - Subject: `CN=k8.exfil.lab`
+   - Issuer: `CN=k8.exfil.lab`
+
+   Nilai Subject dan Issuer sama karena sertifikat dibuat dan ditandatangani sendiri tanpa menggunakan Certificate Authority (CA).
+
+3. **Masa Berlaku Sertifikat**
+
+   Berdasarkan hasil pemeriksaan sertifikat, masa berlakunya adalah:
+   - Not Before: 25 November 2026 pukul 00:56:39 GMT.
+   - Not After: 25 Desember 2026 pukul 00:56:39 GMT.
+
+   Dengan demikian, sertifikat memiliki masa berlaku selama 30 hari.
 
 ### 5. Kesimpulan
 
-SHA-256 dapat dipakai untuk memeriksa integritas file, AES untuk menjaga kerahasiaan data, dan sertifikat digital untuk menyatakan identitas. Sertifikat self-signed cukup untuk lab, tetapi tidak dipercaya publik karena tidak diterbitkan oleh otoritas sertifikat (CA).
+Berdasarkan hasil praktikum, proses enkripsi dan dekripsi menggunakan AES-256-CBC berhasil dilakukan dengan baik. Hal tersebut dibuktikan melalui nilai hash SHA-256 file asli dan hasil dekripsi yang sama, sehingga integritas data tetap terjaga.
+
+Sertifikat digital self-signed juga berhasil dibuat dengan CN `k8.exfil.lab`. Sertifikat self-signed ditandatangani oleh pembuatnya sendiri, sedangkan sertifikat CA ditandatangani oleh Certificate Authority yang berwenang. Sertifikat self-signed dapat digunakan untuk kebutuhan pengujian di lingkungan lab, tetapi tidak otomatis dipercaya oleh perangkat atau browser secara publik.
 
 ---
 
@@ -188,11 +212,11 @@ docker exec korban-k8 arp -a
 
 **Screenshot 5:** Alamat IP ketiga container: korban `172.20.0.2`, gateway `172.20.0.3`, penyerang `172.20.0.4`.
 
-![Bukti Tugas 3 - 05](tugas-3/screenshot/05.png)
+<img width="588" height="149" alt="ss 5" src="https://github.com/user-attachments/assets/5be221e8-ab08-41d1-b811-cc663be5f338" />
 
 **Screenshot 6:** Tabel ARP korban sebelum serangan.
 
-![Bukti Tugas 3 - 06](tugas-3/screenshot/06.png)
+<img width="588" height="149" alt="ss 6" src="https://github.com/user-attachments/assets/ec8bf818-baf3-4242-82fc-db311334a000" />
 
 **Screenshot 7:** Pemeriksaan ulang IP gateway, penyerang, dan korban satu per satu.
 
@@ -200,15 +224,15 @@ docker exec korban-k8 arp -a
 
 **Screenshot 8:** `arpspoof` dijalankan dari penyerang menuju korban selama 20 detik.
 
-![Bukti Tugas 3 - 08](tugas-3/screenshot/08.png)
+<img width="383" height="148" alt="ss 8 ganti" src="https://github.com/user-attachments/assets/6d514fa6-73f4-4235-9045-ff5266d1ef6d" />
 
 **Screenshot 9:** Tabel ARP korban setelah `arpspoof`.
 
-![Bukti Tugas 3 - 09](tugas-3/screenshot/09.png)
+<img width="588" height="148" alt="perbaiki ss9" src="https://github.com/user-attachments/assets/34916530-ac7a-4235-b98b-15798d079e76" />
 
 **Screenshot 10:** Pemasangan entri ARP statis di korban.
 
-![Bukti Tugas 3 - 10](tugas-3/screenshot/10.png)
+<img width="393" height="247" alt="perbaiki ss9" src="https://github.com/user-attachments/assets/b0e52979-0895-4268-a0a8-9230bbf14164" />
 
 **Screenshot 11:** Tabel ARP korban setelah mitigasi static ARP.
 
