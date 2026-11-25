@@ -228,7 +228,7 @@ docker exec korban-k8 arp -a
 
 **Screenshot 9:** Tabel ARP korban setelah `arpspoof`.
 
-<img width="588" height="148" alt="perbaiki ss9" src="https://github.com/user-attachments/assets/34916530-ac7a-4235-b98b-15798d079e76" />
+<img width="393" height="247" alt="perbaiki ss9" src="https://github.com/user-attachments/assets/34916530-ac7a-4235-b98b-15798d079e76" />
 
 **Screenshot 10:** Pemasangan entri ARP statis di korban.
 
@@ -236,7 +236,7 @@ docker exec korban-k8 arp -a
 
 **Screenshot 11:** Tabel ARP korban setelah mitigasi static ARP.
 
-![Bukti Tugas 3 - 11](tugas-3/screenshot/11.png)
+<img width="389" height="99" alt="ss 11" src="https://github.com/user-attachments/assets/ac0aff7e-0a4d-4065-986a-992700dc0ee5" />
 
 ### 4. Hasil Pengujian
 
@@ -376,7 +376,8 @@ SYN flood mengirim banyak SYN (biasanya tanpa pernah mengirim ACK terakhir) agar
 
 **Screenshot 2:** Jumlah `SYN_RECV` sebelum serangan.
 
-![Bukti Tugas 6 - 02](tugas-6/screenshot/02.png)
+<img width="395" height="192" alt="ss2 jaga jaga" src="https://github.com/user-attachments/assets/f6951ee5-6c6b-48fb-87ab-eca1386c3dee" />
+
 
 **Screenshot 3:** Perintah `hping3 -S -p 80 --flood target` dijalankan dari attacker.
 
@@ -384,7 +385,7 @@ SYN flood mengirim banyak SYN (biasanya tanpa pernah mengirim ACK terakhir) agar
 
 **Screenshot 4:** Jumlah `SYN_RECV` setelah serangan dimulai.
 
-![Bukti Tugas 6 - 04](tugas-6/screenshot/04.png)
+<img width="392" height="107" alt="ss 4" src="https://github.com/user-attachments/assets/b5401e8e-8caf-4210-b11b-021f3d551277" />
 
 **Screenshot 5:** Hasil `tcpdump`: SYN, SYN-ACK, ACK, lalu permintaan HTTP.
 
